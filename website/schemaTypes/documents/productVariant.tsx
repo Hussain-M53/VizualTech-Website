@@ -3,7 +3,7 @@ import { CopyIcon } from '@sanity/icons'
 import {defineField, defineType} from 'sanity'
 
 import ProductVariantHiddenInput from '../../components/inputs/ProductVariantHidden'
-import ShopifyDocumentStatus from '../../components/media/ShopifyDocumentStatus'
+// import ShopifyDocumentStatus from '../../components/media/ShopifyDocumentStatus'
 import { GROUPS } from '../../constants'
 
 export const productVariantType = defineType({
@@ -51,15 +51,15 @@ export const productVariantType = defineType({
       const {isDeleted, previewImageUrl, sku, status, title} = selection
 
       return {
-        media: (
-          <ShopifyDocumentStatus
-            isActive={status === 'active'}
-            isDeleted={isDeleted}
-            type="productVariant"
-            url={previewImageUrl}
-            title={title}
-          />
-        ),
+        // media: (
+        //   <ShopifyDocumentStatus
+        //     isActive={status === 'active'}
+        //     isDeleted={isDeleted}
+        //     type="productVariant"
+        //     url={previewImageUrl}
+        //     title={title}
+        //   />
+        // ),
         subtitle: sku,
         title,
       }

@@ -1,7 +1,7 @@
 import {TagIcon} from '@sanity/icons'
 import pluralize from 'pluralize-esm'
 import ProductHiddenInput from '../../components/inputs/ProductHidden'
-import ShopifyDocumentStatus from '../../components/media/ShopifyDocumentStatus'
+// import ShopifyDocumentStatus from '../../components/media/ShopifyDocumentStatus'
 import {defineField, defineType} from 'sanity'
 import {getPriceRange} from '../../utils/getPriceRange'
 import { GROUPS } from '../../constants'
@@ -117,15 +117,15 @@ export const productType = defineType({
         description: description.join(' / '),
         subtitle,
         title,
-        media: (
-          <ShopifyDocumentStatus
-            isActive={status === 'active'}
-            isDeleted={isDeleted}
-            type="product"
-            url={previewImageUrl}
-            title={title}
-          />
-        ),
+        // media: (
+        //   <ShopifyDocumentStatus
+        //     isActive={status === 'active'}
+        //     isDeleted={isDeleted}
+        //     type="product"
+        //     url={previewImageUrl}
+        //     title={title}
+        //   />
+        // ),
       }
     },
   },

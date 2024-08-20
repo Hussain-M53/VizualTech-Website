@@ -1,6 +1,6 @@
 import {defineField} from 'sanity'
 
-import ShopifyDocumentStatus from '../../../components/media/ShopifyDocumentStatus'
+// import ShopifyDocumentStatus from '../../../components/media/ShopifyDocumentStatus'
 
 export const spotType = defineField({
   name: 'spot',
@@ -43,15 +43,15 @@ export const spotType = defineField({
       const {isDeleted, previewImageUrl, productTitle, status, variantPreviewImageUrl, x, y} =
         selection
       return {
-        media: (
-          <ShopifyDocumentStatus
-            isActive={status === 'active'}
-            isDeleted={isDeleted}
-            type="product"
-            url={variantPreviewImageUrl || previewImageUrl}
-            title={productTitle}
-          />
-        ),
+        // media: (
+        //   <ShopifyDocumentStatus
+        //     isActive={status === 'active'}
+        //     isDeleted={isDeleted}
+        //     type="product"
+        //     url={variantPreviewImageUrl || previewImageUrl}
+        //     title={productTitle}
+        //   />
+        // ),
         title: productTitle,
         subtitle: x && y ? `[${x}%, ${y}%]` : `No position set`,
       }
