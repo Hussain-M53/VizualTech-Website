@@ -4,6 +4,7 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import { Dialog, DialogPanel } from '@headlessui/react'
 import { useState } from 'react'
+import Image from 'next/image'
 
 const navigation = [
     { name: 'Our Values', href: '/WhyUs', current: false },
@@ -16,21 +17,23 @@ function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(' ')
 }
 
-export default function Narbar() {
+export default function Navbar() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     return (
         <header className="absolute inset-x-0 top-0 z-50">
             <nav aria-label="Global" className="flex items-center justify-between p-6 lg:px-8">
                 <div className="flex lg:flex-1">
-                    <a href="#" className="-m-1.5 p-1.5">
+                    <Link href="/" className="-m-1.5 p-1.5">
                         <span className="sr-only">Your Company</span>
-                        <img
+                        <Image
                             alt=""
                             src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
                             className="h-8 w-auto"
+                            height={8}
+                            width={8}
                         />
-                    </a>
+                    </Link>
                 </div>
                 <div className="flex lg:hidden">
                     <button
@@ -44,9 +47,9 @@ export default function Narbar() {
                 </div>
                 <div className="hidden lg:flex lg:gap-x-12">
                     {navigation.map((item) => (
-                        <a key={item.name} href={item.href} className="text-sm font-semibold leading-6 text-gray-900">
+                        <Link key={item.name} href={item.href} className="text-sm font-semibold leading-6 text-gray-900">
                             {item.name}
-                        </a>
+                        </Link>
                     ))}
                 </div>
                 <div className="hidden lg:flex lg:flex-1 lg:justify-end">
@@ -58,14 +61,16 @@ export default function Narbar() {
                     <div className="fixed inset-0 z-50" />
                     <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
                         <div className="flex items-center justify-between">
-                            <a href="#" className="-m-1.5 p-1.5">
+                            <Link href="#" className="-m-1.5 p-1.5">
                                 <span className="sr-only">Your Company</span>
-                                <img
+                                <Image
                                     alt=""
                                     src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
                                     className="h-8 w-auto"
+                                    height={8}
+                                    width={8}
                                 />
-                            </a>
+                            </Link>
                             <button
                                 type="button"
                                 onClick={() => setMobileMenuOpen(false)}
