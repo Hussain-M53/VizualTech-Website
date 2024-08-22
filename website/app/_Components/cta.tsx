@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default function CTA() {
@@ -40,7 +41,7 @@ export default function CTA() {
               </div>
             </div>
             <div className="relative mt-16 h-80 lg:mt-8">
-              <img
+              <Image
                 alt="App screenshot"
                 src="https://tailwindui.com/img/component-images/dark-project-app-screenshot.png"
                 width={1824}

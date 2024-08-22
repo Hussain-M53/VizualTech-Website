@@ -1,4 +1,5 @@
 import { CloudArrowUpIcon, LockClosedIcon, ServerIcon } from '@heroicons/react/20/solid'
+import Image from 'next/image'
 
 const features = [
   {
@@ -45,7 +46,7 @@ export default function Values() {
               </dl>
             </div>
           </div>
-          <img
+          <Image
             alt="Product screenshot"
             src="https://tailwindui.com/img/component-images/dark-project-app-screenshot.png"
             width={2432}

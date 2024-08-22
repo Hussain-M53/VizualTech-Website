@@ -1,5 +1,6 @@
-import {CloseIcon, ImageIcon, LinkRemovedIcon} from '@sanity/icons'
-import React, {forwardRef, useState} from 'react'
+import { CloseIcon, ImageIcon, LinkRemovedIcon } from '@sanity/icons'
+import React, { forwardRef, useState } from 'react'
+import Image from 'next/image'
 
 type Props = {
   isActive?: boolean
@@ -9,8 +10,9 @@ type Props = {
   title: string
 }
 
-const ShopifyDocumentStatus = forwardRef<HTMLDivElement, Props>((props, ref) => {
-  const {isActive, isDeleted, type, url, title} = props
+// Adding display name for the component
+const ShopifyDocumentStatus = forwardRef<HTMLDivElement, Props>(function ShopifyDocumentStatus(props, ref) {
+  const { isActive, isDeleted, type, url, title } = props
 
   const [imageVisible, setImageVisible] = useState(true)
 
@@ -28,24 +30,19 @@ const ShopifyDocumentStatus = forwardRef<HTMLDivElement, Props>((props, ref) => 
         justifyContent: 'center',
         overflow: 'hidden',
         width: '100%',
+        position: 'relative' // Ensure position relative for child absolute positioning
       }}
     >
       {imageVisible && url ? (
-        <img
-          onError={handleImageError}
+        <Image
           src={`${url}&width=400`}
-          style={{
-            height: '100%',
-            left: 0,
-            objectFit: 'contain',
-            position: 'absolute',
-            top: 0,
-            width: '100%',
-          }}
           alt={`${title} preview`}
+          layout="fill" // Cover the parent div
+          objectFit="contain"
+          onError={handleImageError}
         />
       ) : (
-        <ImageIcon style={{position: 'absolute'}} />
+        <ImageIcon style={{ position: 'absolute' }} />
       )}
 
       {/* Item has been deleted */}
@@ -55,8 +52,10 @@ const ShopifyDocumentStatus = forwardRef<HTMLDivElement, Props>((props, ref) => 
             background: 'rgba(255, 0, 0, 0.7)',
             color: 'rgba(255, 255, 255, 0.85)',
             height: '100%',
-            position: 'relative',
             width: '100%',
+            position: 'absolute', // Absolute positioning to cover parent div
+            top: 0,
+            left: 0,
           }}
         />
       ) : (
@@ -68,8 +67,10 @@ const ShopifyDocumentStatus = forwardRef<HTMLDivElement, Props>((props, ref) => 
                 background: 'rgba(0, 0, 0, 0.7)',
                 color: 'rgba(255, 255, 255, 0.85)',
                 height: '100%',
-                position: 'relative',
                 width: '100%',
+                position: 'absolute', // Absolute positioning to cover parent div
+                top: 0,
+                left: 0,
               }}
             />
           )}

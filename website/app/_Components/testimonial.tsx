@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Testimonial() {
     return (
       <section className="relative isolate overflow-hidden bg-white px-6 py-24 sm:py-32 lg:px-8">
@@ -13,7 +15,7 @@ export default function Testimonial() {
               </p>
             </blockquote>
             <figcaption className="mt-10">
-              <img
+              <Image
                 alt=""
                 src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                 className="mx-auto h-10 w-10 rounded-full"
