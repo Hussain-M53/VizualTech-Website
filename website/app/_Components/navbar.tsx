@@ -22,16 +22,16 @@ export default function Navbar() {
 
     return (
         <header className="absolute inset-x-0 top-0 z-50">
-            <nav aria-label="Global" className="flex items-center justify-between p-6 lg:px-8">
+            <nav aria-label="Global" className="flex items-center justify-between p-4 lg:px-8">
                 <div className="flex lg:flex-1">
                     <Link href="/" className="-m-1.5 p-1.5">
                         <span className="sr-only">Your Company</span>
                         <Image
                             alt=""
-                            src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                            className="h-8 w-auto"
-                            height={8}
-                            width={8}
+                            src="logo.svg"
+                            className="h-16 w-auto"
+                            height={16}
+                            width={16}
                         />
                     </Link>
                 </div>
