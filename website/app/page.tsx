@@ -14,8 +14,7 @@ export default function Home() {
       <Values />
       <Testimonial />
       <CTA />
-      <LogoCloud /> 
-      <Footer/>
+      <LogoCloud />
     </div>
   );
 }

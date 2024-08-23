@@ -5,6 +5,7 @@ import "./globals.css";
 import { ReactElement, JSXElementConstructor } from "react";
 import { NavbarProps } from "sanity";
 import Navbar from "./_Components/navbar";
+import Footer from "./_Components/footer";
 
 const inter = Roboto_Slab({ subsets: ["latin"] });
 
@@ -24,6 +25,7 @@ export default function RootLayout({
       <Navbar />  
         
         {children}
+        <Footer/>
       </body>
     </html>
   );
