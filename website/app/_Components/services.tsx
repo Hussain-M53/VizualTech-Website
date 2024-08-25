@@ -7,6 +7,7 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from "@/components/ui/carousel"
+import Image from "next/image";
 
 import { useState } from 'react';
 
@@ -28,7 +29,7 @@ export default function Services() {
         <div className="bg-[#171717] w-full h-screen text-white p-8 flex items-center content-between">
             <div className="text-center w-1/2">
                 <h1 className="text-2xl font-bold">{selectedService.name}</h1>
-                <img
+                <Image
                     src={selectedService.image}
                     alt={selectedService.name}
                     className="mx-auto mt-4 h-64 .fade-in"

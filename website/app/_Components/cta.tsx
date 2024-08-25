@@ -26,7 +26,7 @@ export default function CTA() {
               Start using our service today.
             </h2>
             <p className="mt-6 text-lg leading-8 text-gray-300">
-              Enhance efficiency and reduce costs with VizualTech Solutions. Partner with us to optimize your BMS engineering, boost customer retention, and uncover new opportunities. Let's elevate your business to the next level with data-driven solutions designed for success.
+              Enhance efficiency and reduce costs with VizualTech Solutions. Partner with us to optimize your BMS engineering, boost customer retention, and uncover new opportunities. Let&apos;s elevate your business to the next level with data-driven solutions designed for success.
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
               <Link
