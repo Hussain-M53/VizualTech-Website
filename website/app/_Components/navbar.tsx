@@ -6,7 +6,7 @@ import { Dialog, DialogPanel } from '@headlessui/react'
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
 
-const navigation = [
+const initialNavigation = [
     { name: 'Home', href: '/', current: true },
     { name: 'Our Values', href: '/WhyUs', current: false },
     { name: 'Projects', href: '/Projects', current: false },
@@ -21,6 +21,7 @@ function classNames(...classes: string[]) {
 export default function Navbar() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [navbarScrolled, setNavbarScrolled] = useState(false);
+    const [navigation, setNavigation] = useState(initialNavigation);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -36,6 +37,14 @@ export default function Navbar() {
             window.removeEventListener('scroll', handleScroll);
         };
     }, []);
+
+    const handleNavClick = (name: string) => {
+        setNavigation((prevNav) =>
+            prevNav.map((item) =>
+                item.name === name ? { ...item, current: true } : { ...item, current: false }
+            )
+        );
+    };
 
     return (
         <header className={classNames(
@@ -67,24 +76,29 @@ export default function Navbar() {
                 </div>
                 <div className="hidden lg:flex lg:gap-x-12">
                     {navigation.map((item) => (
-                        <Link 
-                            key={item.name} 
-                            href={item.href} 
+                        <Link
+                            key={item.name}
+                            href={item.href}
                             className={classNames(
                                 "text-sm font-semibold leading-6 text-[#171717] relative",
                                 item.current ? "border-b-2 border-[#06B6D4]" : "hover:border-b-2 hover:border-[#06B6D4]",
                                 "hover:border-opacity-0 transition-all duration-300 before:absolute before:-bottom-[2px] before:left-1/2 before:h-[2px] before:w-0 before:bg-[#06B6D4] before:transition-all before:duration-300 hover:before:w-full hover:before:left-0"
                             )}
+                            onClick={() => handleNavClick(item.name)}
                         >
                             {item.name}
                         </Link>
                     ))}
                 </div>
                 <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-                    <Link href="/ContactUs" className="px-3 py-1 bg-[#06B6D4] hover:ring-1 hover:ring-[#06B6D4] hover:text-[#06B6D4] hover:bg-transparent rounded-sm text-white text-sm font-semibold leading-6">
+                    <Link
+                        href="/ContactUs"
+                        className="px-3 py-1 bg-[#06B6D4] text-white text-sm font-semibold leading-6 rounded-sm transition duration-300 ease-in-out hover:ring-1 hover:ring-[#06B6D4] hover:text-[#06B6D4] hover:bg-transparent"
+                    >
                         Contact Us
                     </Link>
                 </div>
+
                 <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
                     <div className="fixed inset-0 z-50" />
                     <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
@@ -116,6 +130,10 @@ export default function Navbar() {
                                             key={item.name}
                                             href={item.href}
                                             className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                                            onClick={() => {
+                                                handleNavClick(item.name);
+                                                setMobileMenuOpen(false);
+                                            }}
                                         >
                                             {item.name}
                                         </Link>

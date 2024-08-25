@@ -4,6 +4,7 @@ import CTA from "./_Components/cta";
 import Testimonial from "./_Components/testimonial";
 import LogoCloud from "./_Components/logoCloud";
 import Services from "./_Components/services";
+import Projects from "./_Components/projects";
 
 export default function Home() {
   return (
@@ -11,8 +12,9 @@ export default function Home() {
       <Hero />
       <Values />
       <Services />
-      <Testimonial />
+      <Projects />
       <CTA />
+      <Testimonial />
       <LogoCloud />
     </div>
   );

@@ -18,6 +18,9 @@ const config = {
       },
     },
     extend: {
+      gridTemplateRows: {
+        '[auto,auto,1fr]': 'auto auto 1fr',
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -78,11 +81,11 @@ const config = {
         "accordion-up": "accordion-up 0.2s ease-out",
         'spin-slow': 'spin 10s linear infinite',
         'spin-reverse': 'spin 10s linear infinite reverse',
-        'typewriter': "typewriter 2s steps(40) forwards"
+        'typewriter': "typewriter 2s steps(40) forwards",
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"), require('@tailwindcss/aspect-ratio')],
 } satisfies Config
 
 export default config
