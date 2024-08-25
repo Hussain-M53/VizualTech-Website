@@ -7,7 +7,7 @@ const config = {
     './components/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
-	],
+  ],
   prefix: "",
   theme: {
     container: {
@@ -63,6 +63,11 @@ const config = {
           from: { height: "0" },
           to: { height: "var(--radix-accordion-content-height)" },
         },
+        "typewriter": {
+          to: {
+            left: "100%"
+          }
+        },
         "accordion-up": {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
@@ -73,6 +78,7 @@ const config = {
         "accordion-up": "accordion-up 0.2s ease-out",
         'spin-slow': 'spin 10s linear infinite',
         'spin-reverse': 'spin 10s linear infinite reverse',
+        'typewriter': "typewriter 2s steps(40) forwards"
       },
     },
   },

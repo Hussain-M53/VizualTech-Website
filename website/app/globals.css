@@ -85,6 +85,6 @@
   .border-t-gradient-to-r {
     border-top: 2px solid;
     border-image-slice: 1;
-    border-image-source: linear-gradient(to right, #06B6D4, #ffffff);
+    border-image-source: linear-gradient(to right, #ff80b5, #ffffff);
   }
 }

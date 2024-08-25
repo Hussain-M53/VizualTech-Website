@@ -1,59 +1,83 @@
-import { CloudArrowUpIcon, LockClosedIcon, ServerIcon } from '@heroicons/react/20/solid'
+import {
+  UserGroupIcon, ChartPieIcon, RocketLaunchIcon, CurrencyDollarIcon, PresentationChartLineIcon, HandThumbUpIcon
+
+} from '@heroicons/react/20/solid'
 import Image from 'next/image'
 
 const features = [
   {
-    name: 'Push to deploy.',
+    name: 'Improve Customer Retention.',
     description:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
-    icon: CloudArrowUpIcon,
+      'Deliver consistent, quanti able, and documented results that breed trust and strengthen customer relationships and keep competitors exactly where they belong — on the outside looking in.',
+    icon: RocketLaunchIcon,
   },
   {
-    name: 'SSL certificates.',
-    description: 'Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.',
-    icon: LockClosedIcon,
+    name: 'Discover New Opportunities.',
+    description: 'Uncover new revenue opportunities by being the first to know about building issues, needs, and other initiatives to deliver additional value to your customers.',
+    icon: CurrencyDollarIcon,
   },
   {
-    name: 'Database backups.',
-    description: 'Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.',
-    icon: ServerIcon,
+    name: 'Gain Competitive Advantage.',
+    description: 'Stand out from the crowd by showing customers and prospects how your services leverage real data and powerful analytics to ensure the optimal performance of their buildings..',
+    icon: ChartPieIcon,
+  },
+  {
+    name: 'Enhance Team Effectiveness.',
+    description: 'Replace assumption-driven guesswork with data-driven answers, saving your team a tremendous amount of e ort and time in troubleshooting and resolving issues.',
+    icon: UserGroupIcon,
+  },
+  {
+    name: 'Become indispensable with VizualTech Solutions.',
+    description: 'Increase labor e ciency ratios, deliver new levels of customer value you probably never thought possible, and take your business to the next level. Contact VizualTech Solutions now!',
+    icon: HandThumbUpIcon,
+  },
+  {
+    name: ' Increase Efficiency & Pro tability.',
+    description: ' Bolster your bottom line by doing more with less while continuing to provide excellent service to your customers as today&apos;s building techs retire and the workforce shrinks.',
+    icon: PresentationChartLineIcon,
   },
 ]
 
 export default function Values() {
   return (
-    <div className="overflow-hidden bg-white py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
-          <div className="lg:pr-8 lg:pt-4">
-            <div className="lg:max-w-lg">
-              <h2 className="text-base font-semibold leading-7 text-indigo-600">Deploy faster</h2>
-              <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">A better workflow</p>
-              <p className="mt-6 text-lg leading-8 text-gray-600">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque,
-                iste dolor cupiditate blanditiis ratione.
-              </p>
-              <dl className="mt-10 max-w-xl space-y-8 text-base leading-7 text-gray-600 lg:max-w-none">
-                {features.map((feature) => (
-                  <div key={feature.name} className="relative pl-9">
-                    <dt className="inline font-semibold text-gray-900">
-                      <feature.icon aria-hidden="true" className="absolute left-1 top-1 h-5 w-5 text-indigo-600" />
-                      {feature.name}
-                    </dt>{' '}
-                    <dd className="inline">{feature.description}</dd>
-                  </div>
-                ))}
-              </dl>
+    <div className="relative overflow-hidden bg-white py-24 sm:py-32">
+      <div className="absolute inset-0">
+        <Image
+          src="/valuesBg.jpg"
+          alt="Background"
+          layout="fill"
+          objectFit="cover"
+          className="opacity-25"
+          style={{
+            filter: 'blur(4px)',
+            WebkitMaskImage: 'radial-gradient(circle, white, transparent)',
+          }}
+        />
+      </div>
+      <div className="mx-auto px-6 lg:px-8">
+        <h2 className="text-base font-semibold leading-7 text-[#06B6D4]">WHY US</h2>
+        <p className="mt-2 text-3xl font-bold tracking-tight text-[#171717] sm:text-4xl">TOP REASONS</p>
+        <p className="my-6 text-lg leading-8 text-gray-600">
+          Optimize Your Engineering & Grow Your Business
+        </p>
+        <div className="mx-auto grid grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+          {features.map((feature) => (
+            <div key={feature.name} className="relative pl-9">
+              <div className="inline font-semibold text-[#171717]">
+                <feature.icon aria-hidden="true" className="absolute left-1 top-1 h-5 w-5  text-[#06B6D4]" />
+                {feature.name}
+              </div>{' '}
+              <div className="inline text-gray-600">{feature.description}</div>
             </div>
-          </div>
-          <Image
+          ))}
+        </div>
+        {/* <Image
             alt="Product screenshot"
             src="https://tailwindui.com/img/component-images/dark-project-app-screenshot.png"
             width={2432}
             height={1442}
             className="w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem] md:-ml-4 lg:-ml-0"
-          />
-        </div>
+          /> */}
       </div>
     </div>
   )

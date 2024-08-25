@@ -81,7 +81,7 @@ export default function Navbar() {
                     ))}
                 </div>
                 <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-                    <Link href="/ContactUs" className="px-3 py-1 bg-[#06B6D4] hover:ring-1 hover:ring-[#06B6D4] hover:text-[#06B6D4] hover:bg-transparent rounded-md text-white text-sm font-semibold leading-6">
+                    <Link href="/ContactUs" className="px-3 py-1 bg-[#06B6D4] hover:ring-1 hover:ring-[#06B6D4] hover:text-[#06B6D4] hover:bg-transparent rounded-sm text-white text-sm font-semibold leading-6">
                         Contact Us
                     </Link>
                 </div>
