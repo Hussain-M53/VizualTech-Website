@@ -23,7 +23,7 @@ export default function Services() {
     ];
 
     return (
-        <div className="relative overflow-hidden bg-[#0F172A] text-white p-10">
+        <div className="relative overflow-hidden bg-[#0F172A] text-white p-10 max-w-7xl mx-auto">
             <div className="relative z-30 text-center text-6xl">Our Services!</div>
             <div className="relative z-30 mt-6 w-full h-screen p-8 flex items-center content-between">
                 <div className="w-1/2 gap-y-6">

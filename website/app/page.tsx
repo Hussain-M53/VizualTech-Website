@@ -5,6 +5,7 @@ import Testimonial from "./_Components/testimonial";
 import LogoCloud from "./_Components/logoCloud";
 import Services from "./_Components/services";
 import Projects from "./_Components/projects";
+import { BackgroundBeams } from "../components/ui/background-beams";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <CTA />
       <Testimonial />
       <LogoCloud />
+      <BackgroundBeams />
     </div>
   );
 }

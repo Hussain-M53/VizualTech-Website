@@ -1,4 +1,5 @@
 'use client'
+import { BackgroundBeams } from "@/components/ui/background-beams";
 import { Card, CardContent } from "@/components/ui/card"
 import {
     Carousel,
@@ -7,6 +8,7 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from "@/components/ui/carousel"
+import { Meteors } from "@/components/ui/meteor";
 import Image from "next/image";
 import { useState } from 'react';
 
@@ -23,9 +25,9 @@ export default function Services() {
     ];
 
     return (
-        <div className="relative overflow-hidden bg-[#0F172A] text-white p-10">
+        <div className="relative overflow-hidden max-w-7xl mx-auto h-full bg-[#0F172A] text-white p-10">
             <div className="relative z-30 text-center text-6xl">Our Services!</div>
-            <div className="relative z-30 mt-6 w-full h-screen p-8 flex items-center content-between">
+            <div className="relative z-30 mt-6 w-full p-8 flex items-center content-between">
                 <div className="w-1/2 gap-y-6">
                     <div className="text-center text-white text-4xl">{selectedService.name}</div>
                     <div className="text-center w-full">
@@ -39,8 +41,11 @@ export default function Services() {
                     </div>
                 </div>
                 <div className="w-1/2 mt-8 space-y-4 z-30">
-                    <Carousel className="w-full " orientation="vertical">
-                        <CarouselContent className="w-full -mt-1 h-[376px]">
+                    <Carousel className="w-full " orientation="vertical" opts={{
+                        align: "start",
+                        loop: true,
+                    }}>
+                        <CarouselContent className="w-full -mt-1 h-[350px]">
                             {services.map((service) => (
                                 <CarouselItem key={service.name} className="pt-1 md:basis-1/2">
                                     <Card className="bg-[#06B6D4]/90 flex items-center justify-center p-2">
@@ -51,7 +56,7 @@ export default function Services() {
                                                 onClick={() => setSelectedService(service)}
                                             >
                                                 <div className="text-2xl text-white">{service.subName}</div>
-                                                <div className="mt-20 text-white">{service.desc}</div>
+                                                <div className="mt-10 text-white">{service.desc}</div>
                                             </div>
                                         </CardContent>
                                     </Card>
@@ -64,6 +69,9 @@ export default function Services() {
                 </div>
             </div>
             <div className="opacity-50 absolute z-20 top-1/2 left-8 transform -translate-x-1/2 -translate-y-1/2 w-[50em] h-[50em] bg-[#06B6D4] rounded-full" />
+            <BackgroundBeams />
+            {/* <Meteors number={10} /> */}
+
         </div>
     );
 }

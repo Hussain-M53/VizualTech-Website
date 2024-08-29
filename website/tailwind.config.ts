@@ -1,4 +1,7 @@
 import type { Config } from "tailwindcss"
+const {
+  default: flattenColorPalette,
+} = require("tailwindcss/lib/util/flattenColorPalette");
 
 const config = {
   darkMode: ["class"],
@@ -62,30 +65,50 @@ const config = {
         sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
-        "accordion-down": {
-          from: { height: "0" },
-          to: { height: "var(--radix-accordion-content-height)" },
+        "meteor": {
+          "0%": { transform: "rotate(215deg) translateX(0)", opacity: "1" },
+          "70%": { opacity: "1" },
+          "100%": {
+            transform: "rotate(215deg) translateX(-500px)",
+            opacity: "0",
+          },
         },
-        "typewriter": {
-          to: {
-            left: "100%"
-          }
-        },
-        "accordion-up": {
-          from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: "0" },
-        },
+      "accordion-down": {
+        from: { height: "0" },
+        to: { height: "var(--radix-accordion-content-height)" },
       },
-      animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
-        'spin-slow': 'spin 10s linear infinite',
-        'spin-reverse': 'spin 10s linear infinite reverse',
-        'typewriter': "typewriter 2s steps(40) forwards",
+      "typewriter": {
+        to: {
+          left: "100%"
+        }
+      },
+      "accordion-up": {
+        from: { height: "var(--radix-accordion-content-height)" },
+        to: { height: "0" },
       },
     },
+    animation: {
+      "accordion-down": "accordion-down 0.2s ease-out",
+      "accordion-up": "accordion-up 0.2s ease-out",
+      'spin-slow': 'spin 10s linear infinite',
+      'spin-reverse': 'spin 10s linear infinite reverse',
+      'typewriter': "typewriter 2s steps(40) forwards",
+    },
   },
-  plugins: [require("tailwindcss-animate"), require('@tailwindcss/aspect-ratio')],
+},
+  plugins: [require("tailwindcss-animate"), require('@tailwindcss/aspect-ratio'), addVariablesForColors],
 } satisfies Config
 
+
+
+function addVariablesForColors({ addBase, theme }: any) {
+  let allColors = flattenColorPalette(theme("colors"));
+  let newVars = Object.fromEntries(
+    Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+  );
+
+  addBase({
+    ":root": newVars,
+  });
+}
 export default config

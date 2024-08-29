@@ -40,7 +40,7 @@ import {
   
   export default function Values() {
     return (
-      <div className="relative overflow-hidden bg-white py-24 sm:py-32">
+      <div className="relative overflow-hidden bg-white py-24 sm:py-32 max-w-7xl mx-auto">
         <div className="absolute inset-0">
           <Image
             src="/valuesBg.jpg"

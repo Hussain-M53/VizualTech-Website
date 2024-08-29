@@ -6,7 +6,7 @@ import Link from "next/link"
 export default function Hero() {
 
   return (
-    <div className="relative overflow-hidden bg-white">
+    <div className="relative max-w-7xl mx-auto overflow-hidden bg-white">
       <div className="absolute -top-20 -left-20 inset-0">
         <Image
           src="/wave.png"

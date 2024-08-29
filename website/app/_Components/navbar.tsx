@@ -3,7 +3,7 @@
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import { Dialog, DialogPanel } from '@headlessui/react'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
 
 const initialNavigation = [
@@ -20,21 +20,37 @@ function classNames(...classes: string[]) {
 
 export default function Navbar() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [navbarVisible, setNavbarVisible] = useState(true);
     const [navbarScrolled, setNavbarScrolled] = useState(false);
     const [navigation, setNavigation] = useState(initialNavigation);
+    const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+    const handleScroll = () => {
+        const isScrolled = window.scrollY > 0;
+        setNavbarScrolled(isScrolled);
+        setNavbarVisible(true);
+
+        // Clear the timeout if it's already set
+        if (scrollTimeoutRef.current) {
+            clearTimeout(scrollTimeoutRef.current);
+        }
+
+        // Set a timeout to hide the navbar after 2 seconds of no scrolling, only if scrolled
+        if (isScrolled) {
+            scrollTimeoutRef.current = setTimeout(() => {
+                setNavbarVisible(false);
+            }, 2000);
+        }
+    };
 
     useEffect(() => {
-        const handleScroll = () => {
-            if (window.scrollY > 0) {
-                setNavbarScrolled(true);
-            } else {
-                setNavbarScrolled(false);
-            }
-        };
-
         window.addEventListener('scroll', handleScroll);
+
         return () => {
             window.removeEventListener('scroll', handleScroll);
+            if (scrollTimeoutRef.current) {
+                clearTimeout(scrollTimeoutRef.current);
+            }
         };
     }, []);
 
@@ -47,10 +63,13 @@ export default function Navbar() {
     };
 
     return (
-        <header className={classNames(
-            "sticky inset-x-0 top-0 z-50 transition-all duration-300",
-            navbarScrolled ? "bg-white/50 backdrop-blur-md shadow-lg" : "bg-transparent"
-        )}>
+        <header
+            className={classNames(
+                "fixed inset-x-0 top-0 z-50 transition-transform duration-500 max-w-7xl mx-auto",
+                navbarVisible ? "translate-y-0" : "-translate-y-full",
+                navbarScrolled ? "bg-white/50 backdrop-blur-md shadow-lg" : "bg-white/50 backdrop-blur-md"
+            )}
+        >
             <nav aria-label="Global" className="flex items-center justify-between p-3 lg:px-8">
                 <div className="flex lg:flex-1">
                     <Link href="/" className="-m-1.5 p-1.5">
@@ -153,5 +172,5 @@ export default function Navbar() {
                 </Dialog>
             </nav>
         </header>
-    )
+    );
 }

@@ -1,8 +1,12 @@
+'use client'
+
 import {
   UserGroupIcon, ChartPieIcon, RocketLaunchIcon, CurrencyDollarIcon, PresentationChartLineIcon, HandThumbUpIcon
 
 } from '@heroicons/react/20/solid'
 import Image from 'next/image'
+import { AnimatePresence, motion } from "framer-motion";
+import { useState } from 'react';
 
 const features = [
   {
@@ -39,8 +43,11 @@ const features = [
 ]
 
 export default function Values() {
+  let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
+
   return (
-    <div className="relative overflow-hidden bg-white py-24 sm:py-32">
+    <div className="relative max-w-7xl mx-auto overflow-hidden bg-white py-24 sm:py-32">
       <div className="absolute inset-0">
         <Image
           src="/valuesBg.jpg"
@@ -61,13 +68,37 @@ export default function Values() {
           Optimize Your Engineering & Grow Your Business
         </p>
         <div className="mx-auto grid grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-          {features.map((feature) => (
-            <div key={feature.name} className="relative pl-9">
-              <div className="inline font-semibold text-[#171717]">
-                <feature.icon aria-hidden="true" className="absolute left-1 top-1 h-5 w-5  text-[#06B6D4]" />
-                {feature.name}
-              </div>{' '}
-              <div className="inline text-gray-600">{feature.description}</div>
+          {features.map((feature, idx) => (
+            <div
+              key={feature?.name}
+              className="relative group  block p-2 h-full w-full "
+              onMouseEnter={() => setHoveredIndex(idx)}
+              onMouseLeave={() => setHoveredIndex(null)}
+            >
+              <AnimatePresence>
+                {hoveredIndex === idx && (
+                  <motion.span
+                    className="absolute inset-0 h-full w-full bg-slate-400/[0.2] block  rounded-3xl"
+                    layoutId="hoverBackground" // required for the background to follow
+                    initial={{ opacity: 0 }}
+                    animate={{
+                      opacity: 1,
+                      transition: { duration: 0.15 },
+                    }}
+                    exit={{
+                      opacity: 0,
+                      transition: { duration: 0.15, delay: 0.2 },
+                    }}
+                  />
+                )}
+              </AnimatePresence>
+              <div key={feature.name} className="relative pl-12  rounded-md py-4 pr-4 ">
+                <div className="inline font-semibold text-[#171717]">
+                  <feature.icon aria-hidden="true" className="absolute left-2 top-4 h-8 w-8 text-[#06B6D4]" />
+                  {feature.name}
+                </div>{' '}
+                <div className="inline text-gray-600">{feature.description}</div>
+              </div>
             </div>
           ))}
         </div>
