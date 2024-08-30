@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function CTA() {
   return (
-    <div className="bg-white">
+    <div className="bg-white snap-always snap-start">
       <div className="mx-auto max-w-7xl py-6 sm:px-6 sm:py-6 lg:px-4">
         <div className="relative isolate overflow-hidden bg-[#06B6D4] px-6 pt-8 shadow-2xl sm:rounded-3xl sm:px-16 md:pt-6 lg:flex lg:gap-x-14 lg:px-12 lg:pt-0">
           <svg

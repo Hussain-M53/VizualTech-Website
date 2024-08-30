@@ -4,6 +4,7 @@ import { useMotionValueEvent, useScroll } from "framer-motion";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import { LampContainer } from "@/components/ui/lamp";
 
 const StickyScroll = ({
   content,
@@ -61,54 +62,70 @@ const StickyScroll = ({
   }, [activeCard]);
 
   return (
-    <motion.div
-      animate={{
-        backgroundColor: backgroundColors[activeCard % backgroundColors.length],
-      }}
-      className="h-[30rem] overflow-y-auto flex justify-center relative space-x-10 rounded-md p-10"
-      ref={ref}
-    >
-      <div className="div relative flex items-start px-4">
-        <div className="max-w-2xl">
-          {content.map((item, index) => (
-            <div key={item.title + index} className="my-20">
-              <motion.h2
-                initial={{
-                  opacity: 0,
-                }}
-                animate={{
-                  opacity: activeCard === index ? 1 : 0.3,
-                }}
-                className="text-2xl font-bold text-slate-100"
-              >
-                {item.title}
-              </motion.h2>
-              <motion.p
-                initial={{
-                  opacity: 0,
-                }}
-                animate={{
-                  opacity: activeCard === index ? 1 : 0.3,
-                }}
-                className="text-kg text-slate-300 max-w-sm mt-10"
-              >
-                {item.description}
-              </motion.p>
-            </div>
-          ))}
-          <div className="h-40" />
-        </div>
-      </div>
-      <div
-        style={{ background: backgroundGradient }}
-        className={cn(
-          "hidden lg:block h-60 w-80 rounded-md bg-white sticky top-10 overflow-hidden",
-          contentClassName
-        )}
+    <>
+      <LampContainer>
+        <motion.h1
+          initial={{ opacity: 0.5, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{
+            delay: 0.3,
+            duration: 0.8,
+            ease: "easeInOut",
+          }}
+          className="text-center text-6xl bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text font-medium tracking-tight text-transparent md:text-7xl"
+        >
+          Projects
+        </motion.h1>
+      </LampContainer>
+      <motion.div
+        animate={{
+          backgroundColor: backgroundColors[activeCard % backgroundColors.length],
+        }}
+        className="h-[30rem] overflow-y-auto flex justify-center relative space-x-10  p-10"
+        ref={ref}
       >
-        {content[activeCard].content ?? null}
-      </div>
-    </motion.div>
+        <div className="div relative flex items-start px-4">
+          <div className="max-w-2xl">
+            {content.map((item, index) => (
+              <div key={item.title + index} className="my-20">
+                <motion.h2
+                  initial={{
+                    opacity: 0,
+                  }}
+                  animate={{
+                    opacity: activeCard === index ? 1 : 0.3,
+                  }}
+                  className="text-2xl font-bold text-slate-100"
+                >
+                  {item.title}
+                </motion.h2>
+                <motion.p
+                  initial={{
+                    opacity: 0,
+                  }}
+                  animate={{
+                    opacity: activeCard === index ? 1 : 0.3,
+                  }}
+                  className="text-kg text-slate-300 max-w-sm mt-10"
+                >
+                  {item.description}
+                </motion.p>
+              </div>
+            ))}
+            <div className="h-40" />
+          </div>
+        </div>
+        <div
+          style={{ background: backgroundGradient }}
+          className={cn(
+            "hidden lg:block h-60 w-80 rounded-md bg-white sticky top-10 overflow-hidden",
+            contentClassName
+          )}
+        >
+          {content[activeCard].content ?? null}
+        </div>
+      </motion.div>
+    </>
   );
 };
 
@@ -163,12 +180,9 @@ const content = [
 
 export default function Projects() {
   return (
-    <div className="p-10 ">
-        <h1 className="text-center text-6xl mb-2">
-            Projects
-        </h1>
+    <div className="relative overflow-hidden max-w-7xl mx-auto snap-always snap-start py-10">
+
       <StickyScroll content={content} />
     </div>
   );
 }
-

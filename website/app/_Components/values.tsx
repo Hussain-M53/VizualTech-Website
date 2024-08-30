@@ -47,7 +47,7 @@ export default function Values() {
 
 
   return (
-    <div className="relative max-w-7xl mx-auto overflow-hidden bg-white py-24 sm:py-32">
+    <div className="snap-always snap-start relative max-w-7xl mx-auto overflow-hidden bg-white py-24 sm:py-32">
       <div className="absolute inset-0">
         <Image
           src="/valuesBg.jpg"

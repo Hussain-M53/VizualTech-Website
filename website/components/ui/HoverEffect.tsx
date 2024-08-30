@@ -8,7 +8,7 @@ export const projects = [
       "A web app that allows users to practice for front-end and UI interviews.",
     link: "https://algochurn.com",
   },
-];
+    ];
 
 export const HoverEffect = () => {
   let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);

@@ -1,13 +1,8 @@
-'use client'
-
-import { useState } from 'react'
-
 
 export default function Contact() {
-  const [agreed, setAgreed] = useState(false)
 
   return (
-    <div className="relative bg-white flex max-w-7xl mx-auto">
+    <div className="relative bg-black flex max-w-7xl mx-auto mt-20">
       <div className="w-1/2 bg-gray-100 p-10">
         <div className="max-w-md">
           <h2 className="text-3xl font-bold tracking-tight text-gray-900">Get in touch</h2>

@@ -9,10 +9,10 @@ import { BackgroundBeams } from "../components/ui/background-beams";
 
 export default function Home() {
   return (
-    <div>
+    <div className="snap-y snap-mandatory">
       <Hero />
-      <Values />
       <Services />
+      <Values />
       <Projects />
       <CTA />
       <Testimonial />
