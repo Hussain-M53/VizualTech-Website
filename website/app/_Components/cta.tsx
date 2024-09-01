@@ -1,5 +1,4 @@
 import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
-import { PulseBeams, SVGs } from "@/components/ui/PulseBeam";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -21,13 +20,15 @@ export default function CTA() {
               </radialGradient>
             </defs>
           </svg>
-          <div className="w-1/2 mx-auto max-w-fulll text-center lg:mx-0 lg:flex-auto lg:py-16 lg:text-left">
+          <div className="lg:w-1/2 mx-auto max-w-full text-center lg:mx-0 lg:flex-auto lg:py-16 lg:text-left">
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
               Empower Your Building Management Systems
               <br />
-              Start using our service today.
+              <span className="text-2xl sm:text-3xl">
+                Start using our service today.
+              </span>
             </h2>
-            <p className="mt-6 text-lg leading-8 text-gray-300">
+            <p className="mt-6 text-md sm:text-lg leading-8 text-gray-300">
               Enhance efficiency and reduce costs with VizualTech Solutions. Partner with us to optimize your BMS engineering, boost customer retention, and uncover new opportunities. Let&apos;s elevate your business to the next level with data-driven solutions designed for success.
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
@@ -49,13 +50,13 @@ export default function CTA() {
               </Link>
             </div>
           </div>
-          <div className="w-1/2 flex items-center mt-16 lg:mt-8">
+          <div className="flex justify-center lg:items-center mt-4 py-4">
             <Image
               alt="App screenshot"
               src="/ctaImage.png"
               width={1824}
               height={1080}
-              className="w-[30rem] max-w-none rounded-md "
+              className="w-[20rem] sm:w-[30rem] max-w-none rounded-md "
             />
           </div>
         </div>

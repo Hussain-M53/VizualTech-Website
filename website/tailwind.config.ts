@@ -65,6 +65,11 @@ const config = {
         sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
+        "scroll": {
+          to: {
+            transform: "translate(calc(-50% - 0.5rem))",
+          },
+        },
         "meteor": {
           "0%": { transform: "rotate(215deg) translateX(0)", opacity: "1" },
           "70%": { opacity: "1" },
@@ -73,29 +78,31 @@ const config = {
             opacity: "0",
           },
         },
-      "accordion-down": {
-        from: { height: "0" },
-        to: { height: "var(--radix-accordion-content-height)" },
+        "accordion-down": {
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "typewriter": {
+          to: {
+            left: "100%"
+          }
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
       },
-      "typewriter": {
-        to: {
-          left: "100%"
-        }
+      animation: {
+        "scroll":
+          "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
+        'spin-slow': 'spin 10s linear infinite',
+        'spin-reverse': 'spin 10s linear infinite reverse',
+        'typewriter': "typewriter 2s steps(40) forwards",
       },
-      "accordion-up": {
-        from: { height: "var(--radix-accordion-content-height)" },
-        to: { height: "0" },
-      },
-    },
-    animation: {
-      "accordion-down": "accordion-down 0.2s ease-out",
-      "accordion-up": "accordion-up 0.2s ease-out",
-      'spin-slow': 'spin 10s linear infinite',
-      'spin-reverse': 'spin 10s linear infinite reverse',
-      'typewriter': "typewriter 2s steps(40) forwards",
     },
   },
-},
   plugins: [require("tailwindcss-animate"), require('@tailwindcss/aspect-ratio'), addVariablesForColors],
 } satisfies Config
 

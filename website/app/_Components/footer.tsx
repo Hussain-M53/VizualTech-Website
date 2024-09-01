@@ -48,18 +48,18 @@ function Footer() {
     ];
 
     return (
-        <footer className="bg-[#06B6D4] max-w-7xl mx-auto rounded-lg shadow dark:bg-[#06B6D4] m-4">
+        <footer className="bg-[#06B6D4] max-w-7xl rounded-lg shadow dark:bg-[#06B6D4] m-4">
             <div className="w-full max-w-screen-xl mx-auto p-4 md:py-6">
-                <div className="sm:flex sm:items-start sm:justify-between space-y-8 sm:space-y-0 sm:space-x-8">
-                    <div className="flex flex-col">
+                <div className="sm:flex sm:items-start sm:justify-between space-y-8 sm:space-y-0 sm:space-x-4">
+                    <div className="flex justify-center">
                         <Link href="#" className="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
                             <Image src="/fullLogo.png" className="w-[15rem]" alt="" width={100} height={50} />
                         </Link>
                     </div>
 
-                    <div className="flex flex-col space-y-4">
+                    <div className="flex flex-col  sm:block items-center space-y-4">
                         <h3 className="text-white font-medium">Company</h3>
-                        <ul className="text-sm text-gray-300 space-y-2">
+                        <ul className="text-xs md:text-sm text-gray-300 space-y-2">
                             <li>
                                 <Link href="/AboutUs" className="hover:underline font-medium">About</Link>
                             </li>
@@ -69,9 +69,9 @@ function Footer() {
                         </ul>
                     </div>
 
-                    <div className="flex flex-col space-y-4">
+                    <div className="flex flex-col  sm:block items-center space-y-4">
                         <h3 className="text-white font-medium">Projects</h3>
-                        <ul className="text-sm text-gray-300 space-y-2">
+                        <ul className="text-xs md:text-sm text-gray-300 space-y-2">
                             <li>
                                 <Link href="/Projects" className="hover:underline">Project 1</Link>
                             </li>
@@ -84,9 +84,9 @@ function Footer() {
                         </ul>
                     </div>
 
-                    <div className="flex flex-col space-y-4">
+                    <div className="flex flex-col  sm:block items-center space-y-4">
                         <h3 className="text-white font-medium">Services</h3>
-                        <ul className="text-sm text-gray-300 space-y-2">
+                        <ul className="text-xs md:text-sm text-center sm:text-start text-gray-300 space-y-2">
                             <li>
                                 <Link href="/Services" className="hover:underline">DDC Programming</Link>
                             </li>
@@ -102,9 +102,9 @@ function Footer() {
                         </ul>
                     </div>
 
-                    <div className="flex flex-col space-y-4 text-white">
+                    <div className="flex flex-col items-center sm:block text-center sm:text-start space-y-4 text-white">
                         <h3 className="text-lg">Get in Touch</h3>
-                        <div className="text-sm text-gray-300 dark:text-gray-300">
+                        <div className="text-xs md:text-sm text-gray-300 dark:text-gray-300">
                             <div className="mb-2">Tel: <Link href="tel:+922137121330" className="hover:underline  hover:text-white">+92 21 37121330</Link>, <Link href="tel:+923452052453" className="hover:underline">+92 345 2052453</Link> </div>
                             <div className="mb-2">Email: <Link href="mailto:info@vizualtechs.com" className="hover:underline hover:text-white">info@vizualtechs.com</Link></div>
                             <div className="mt-2 hover:text-white">Address: 
@@ -116,13 +116,13 @@ function Footer() {
                 </div>
 
                 <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-300 lg:my-8" />
-                <div className='relative flex justify-between w-full px-4 pb-8'>
+                <div className='relative flex justify-center md:justify-between w-full px-4 pb-8'>
                     <div className="block text-sm text-gray-300 sm:text-center dark:text-gray-300">© 2024 <Link href="https://www.linkedin.com/in/hussain-murtaza-b85b2b1a6/" className="hover:underline">Digilabs.Co</Link>. All Rights Reserved.</div>
                     <div className='absolute right-0 flex gap-x-4'>
                         <div className="flex items-center justify-center w-full">
                             <FloatingDock
                                 mobileClassName="translate-y-20"
-                                items={links}
+                                items={links}   
                             />
                         </div>
                     </div>

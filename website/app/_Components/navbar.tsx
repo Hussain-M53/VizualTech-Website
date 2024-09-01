@@ -70,8 +70,8 @@ export default function Navbar() {
                 navbarScrolled ? "bg-white/50 backdrop-blur-md shadow-lg" : "bg-white/50 backdrop-blur-md"
             )}
         >
-            <nav aria-label="Global" className="flex items-center justify-between p-3 lg:px-8">
-                <div className="flex lg:flex-1">
+            <nav aria-label="Global" className="flex items-center justify-between py-4 px-6 lg:px-8">
+                <div className="flex sm:flex-1">
                     <Link href="/" className="-m-1.5 p-1.5">
                         <span className="sr-only">Your Company</span>
                         <Image
@@ -83,7 +83,7 @@ export default function Navbar() {
                         />
                     </Link>
                 </div>
-                <div className="flex lg:hidden">
+                <div className="flex sm:hidden">
                     <button
                         type="button"
                         onClick={() => setMobileMenuOpen(true)}
@@ -93,7 +93,7 @@ export default function Navbar() {
                         <Bars3Icon aria-hidden="true" className="h-6 w-6" />
                     </button>
                 </div>
-                <div className="hidden lg:flex lg:gap-x-12">
+                <div className="hidden sm:flex sm:gap-x-6 md:gap-x-8 lg:gap-x-12">
                     {navigation.map((item) => (
                         <Link
                             key={item.name}
@@ -109,7 +109,7 @@ export default function Navbar() {
                         </Link>
                     ))}
                 </div>
-                <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+                <div className="hidden sm:flex sm:flex-1 sm:justify-end">
                     <Link
                         href="/ContactUs"
                         className="px-3 py-1 bg-[#06B6D4] text-white text-sm font-semibold leading-6 rounded-sm transition duration-300 ease-in-out hover:ring-1 hover:ring-[#06B6D4] hover:text-[#06B6D4] hover:bg-transparent"
@@ -118,7 +118,7 @@ export default function Navbar() {
                     </Link>
                 </div>
 
-                <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
+                <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="sm:hidden">
                     <div className="fixed inset-0 z-50" />
                     <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
                         <div className="flex items-center justify-between">

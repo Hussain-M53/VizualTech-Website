@@ -47,7 +47,7 @@ export default function Values() {
 
 
   return (
-    <div className="snap-always snap-start relative max-w-7xl mx-auto overflow-hidden bg-white py-24 sm:py-32">
+    <div className="snap-always snap-start relative max-w-7xl mx-auto overflow-hidden bg-white py-16 md:py-28">
       <div className="absolute inset-0">
         <Image
           src="/valuesBg.jpg"
@@ -67,7 +67,7 @@ export default function Values() {
         <p className="my-6 text-lg leading-8 text-gray-600">
           Optimize Your Engineering & Grow Your Business
         </p>
-        <div className="mx-auto grid grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+        <div className="mx-auto grid grid-cols-1 gap-x-8 gap-y-2 md:gap-y-8 lg:gap-y-14 lg:mx-0 lg:max-w-none md:grid-cols-2 lg:grid-cols-3">
           {features.map((feature, idx) => (
             <div
               key={feature?.name}
@@ -78,7 +78,7 @@ export default function Values() {
               <AnimatePresence>
                 {hoveredIndex === idx && (
                   <motion.span
-                    className="absolute inset-0 h-full w-full bg-slate-400/[0.2] block  rounded-3xl"
+                    className="absolute inset-0 h-full w-full bg-slate-400/[0.2] block rounded-md sm:rounded-3xl"
                     layoutId="hoverBackground" // required for the background to follow
                     initial={{ opacity: 0 }}
                     animate={{

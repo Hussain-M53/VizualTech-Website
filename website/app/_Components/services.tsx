@@ -44,7 +44,7 @@ export default function Services() {
     };
 
     return (
-        <div className="mt-20 snap-always snap-start relative overflow-hidden max-w-7xl mx-auto h-full bg-[#0F172A] text-white p-10">
+        <div className="mt-20 snap-always snap-start relative overflow-hidden max-w-7xl mx-auto h-full bg-[#0F172A] text-white p-4 md:p-10">
             <div className="relative z-30 text-center text-6xl">Our Services!</div>
             <div className="relative z-30 mt-6 w-full p-8 flex items-center content-between">
                 <div className="w-1/2 gap-y-6">
@@ -74,8 +74,8 @@ export default function Services() {
                                                 className="text-white h-[250px] w-full p-4 rounded-lg cursor-pointer"
                                                 onClick={() => setSelectedService(service)}
                                             >
-                                                <div className="text-2xl text-white">{service.subName}</div>
-                                                <div className="mt-10 text-white">{service.desc}</div>
+                                                <div className="text-xl lg:text-2xl text-white">{service.subName}</div>
+                                                <div className="text-sm lg:text-md mt-6 lg:mt-10 text-white">{service.desc}</div>
                                             </div>
                                         </CardContent>
                                     </Card>
