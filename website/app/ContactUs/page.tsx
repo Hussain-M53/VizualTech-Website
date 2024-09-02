@@ -2,11 +2,11 @@
 export default function Contact() {
 
   return (
-    <div className="relative bg-black flex max-w-7xl mx-auto mt-20">
-      <div className="w-1/2 bg-gray-100 p-10">
+    <div className="relative bg-black flex flex-col sm:flex-row max-w-7xl mx-auto mt-20">
+      <div className="sm:w-1/2 bg-gray-100 p-10">
         <div className="max-w-md">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900">Get in touch</h2>
-          <p className="mt-4 text-lg leading-7 text-gray-600">
+          <h2 className="text-center sm:text-left text-3xl font-bold tracking-tight text-gray-900">Get in touch</h2>
+          <p className="text-center sm:text-left mt-4 text-lg leading-7 text-gray-600">
             We want to make your
             BMS Engineering Better &
             Cost Effective
@@ -29,7 +29,7 @@ export default function Contact() {
         </div>
       </div>
 
-      <div className="w-1/2 bg-white p-10">
+      <div className="sm:w-1/2 bg-white p-10">
         <form action="#" method="POST" className="max-w-lg mx-auto">
           <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
             <div>

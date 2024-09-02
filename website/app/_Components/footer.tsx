@@ -48,7 +48,7 @@ function Footer() {
     ];
 
     return (
-        <footer className="bg-[#06B6D4] max-w-7xl rounded-lg shadow dark:bg-[#06B6D4] m-4">
+        <footer className="bg-[#06B6D4] max-w-7xl mx-auto rounded-lg shadow dark:bg-[#06B6D4] m-4">
             <div className="w-full max-w-screen-xl mx-auto p-4 md:py-6">
                 <div className="sm:flex sm:items-start sm:justify-between space-y-8 sm:space-y-0 sm:space-x-4">
                     <div className="flex justify-center">

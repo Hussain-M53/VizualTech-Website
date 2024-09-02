@@ -40,26 +40,26 @@ export default function Services() {
         setTimeout(() => {
             setSelectedService(services[index]);
             setImageVisible(true);
-        }, 500);
+        }, 500); // Duration of the fade-out effect
     };
 
     return (
-        <div className="mt-20 snap-always snap-start relative overflow-hidden max-w-7xl mx-auto h-full bg-[#0F172A] text-white p-10">
-            <div className="relative z-30 text-center text-6xl">Our Services!</div>
-            <div className="relative z-30 mt-6 w-full p-8 flex items-center content-between">
-                <div className="w-1/2 gap-y-6">
-                    <div className="text-center text-white text-4xl">{selectedService.name}</div>
+        <div className="mt-20 snap-always snap-start relative overflow-hidden max-w-7xl mx-auto h-full bg-[#0F172A] text-white py-20">
+            <div className="relative z-30 text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl">Our Services!</div>
+            <div className="relative z-30 mt-6 w-full p-8 flex flex-col items-center sm:flex-row sm:items-center sm:content-between">
+                <div className="sm:w-1/2">
+                    <div className="text-center text-white text-2xl md:text-4xl">{selectedService.name}</div>
                     <div className="text-center w-full">
                         <Image
                             width={600}
-                            height={64}
+                            height={200}
                             src={selectedService.image}
                             alt={selectedService.name}
-                            className={`z-30 mx-auto mt-4 cover ${imageVisible ? 'fadeInSlideIn' : 'fadeOut'}`}
+                            className={`z-30 mx-auto cover w-[50rem] ${imageVisible ? 'fadeInSlideIn' : 'fadeOut'}`}
                         />
                     </div>
                 </div>
-                <div className="w-1/2 mt-8 space-y-4 z-30">
+                <div className="sm:w-1/2 mt-8 space-y-4 z-30">
                     <Carousel className="w-full " orientation="vertical" opts={{
                         align: "start",
                         loop: true,
@@ -71,11 +71,11 @@ export default function Services() {
                                         <CardContent className="">
                                             <div
                                                 key={service.name}
-                                                className="text-white h-[250px] w-full p-4 rounded-lg cursor-pointer"
+                                                className="text-white h-[250px] w-full p-2 md:p-3 lg:p-4 rounded-lg cursor-pointer"
                                                 onClick={() => setSelectedService(service)}
                                             >
-                                                <div className="text-2xl text-white">{service.subName}</div>
-                                                <div className="mt-10 text-white">{service.desc}</div>
+                                                <div className="text-xl lg:text-2xl text-white">{service.subName}</div>
+                                                <div className="text-xs md:text-sm lg:text-md mt-2 md:mt-6 lg:mt-10 text-white">{service.desc}</div>
                                             </div>
                                         </CardContent>
                                     </Card>
@@ -87,7 +87,7 @@ export default function Services() {
                     </Carousel>
                 </div>
             </div>
-            <div className="opacity-50 absolute z-20 top-1/2 left-8 transform -translate-x-1/2 -translate-y-1/2 w-[50em] h-[50em] bg-[#06B6D4] rounded-full" />
+            <div className="opacity-50 absolute z-20 top-1/2 left-8 transform -translate-x-1/2 -translate-y-1/2 w-[30rem] h-[30rem]  md:w-[50rem] md:h-[50rem] bg-[#06B6D4] rounded-full" />
             <BackgroundBeams />
         </div>
     );

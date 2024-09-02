@@ -62,7 +62,11 @@ const StickyScroll = ({
   }, [activeCard]);
 
   return (
-    <>
+    <motion.div
+    animate={{
+        backgroundColor: backgroundColors[activeCard % backgroundColors.length],
+    }}
+    >
       <LampContainer>
         <motion.h1
           initial={{ opacity: 0.5, y: 100 }}
@@ -81,7 +85,7 @@ const StickyScroll = ({
         animate={{
           backgroundColor: backgroundColors[activeCard % backgroundColors.length],
         }}
-        className="h-[30rem] overflow-y-auto flex justify-center relative space-x-10  p-10"
+        className="h-[30rem] overflow-y-auto [&::-webkit-scrollbar]:hidden flex justify-center relative space-x-10  p-10"
         ref={ref}
       >
         <div className="div relative flex items-start px-4">
@@ -125,7 +129,7 @@ const StickyScroll = ({
           {content[activeCard].content ?? null}
         </div>
       </motion.div>
-    </>
+    </motion.div>
   );
 };
 
@@ -181,7 +185,6 @@ const content = [
 export default function Projects() {
   return (
     <div className="relative overflow-hidden max-w-7xl mx-auto snap-always snap-start py-10">
-
       <StickyScroll content={content} />
     </div>
   );
