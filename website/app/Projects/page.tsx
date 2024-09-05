@@ -46,6 +46,7 @@ const StickyScroll = ({
     "var(--slate-900)",
     "var(--black)",
     "var(--neutral-900)",
+    "var(--slate-900)",
   ];
   const linearGradients = [
     "linear-gradient(to bottom right, var(--cyan-500), var(--emerald-500))",
@@ -67,7 +68,7 @@ const StickyScroll = ({
         backgroundColor: backgroundColors[activeCard % backgroundColors.length],
     }}
     >
-      <LampContainer>
+      <LampContainer className = {`bg-[${backgroundColors[activeCard % backgroundColors.length]}]`}>
         <motion.h1
           initial={{ opacity: 0.5, y: 100 }}
           whileInView={{ opacity: 1, y: 0 }}

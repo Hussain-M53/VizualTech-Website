@@ -1,6 +1,9 @@
+'use client'
+
 import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 export default function CTA() {
   return (
@@ -20,7 +23,13 @@ export default function CTA() {
               </radialGradient>
             </defs>
           </svg>
-          <div className="lg:w-1/2 mx-auto max-w-full text-center lg:mx-0 lg:flex-auto lg:py-16 lg:text-left">
+          <motion.div
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1 }}
+            viewport={{ once: false }}
+            className="lg:w-1/2 mx-auto max-w-full text-center lg:mx-0 lg:flex-auto lg:py-16 lg:text-left"
+          >
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
               Empower Your Building Management Systems
               <br />
@@ -43,22 +52,27 @@ export default function CTA() {
                 >
                   Contact Us
                 </Link>
-
               </HoverBorderGradient>
               <Link href="/AboutUs" className="text-sm font-semibold leading-6 text-white">
                 Learn more <span aria-hidden="true">→</span>
               </Link>
             </div>
-          </div>
-          <div className="flex justify-center lg:items-center mt-4 py-4">
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1 }}
+            viewport={{ once: false }}
+            className="flex justify-center lg:items-center mt-4 py-4"
+          >
             <Image
               alt="App screenshot"
               src="/ctaImage.png"
               width={1824}
               height={1080}
-              className="w-[20rem] sm:w-[30rem] max-w-none rounded-md "
+              className="w-[20rem] sm:w-[30rem] max-w-none rounded-md"
             />
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>

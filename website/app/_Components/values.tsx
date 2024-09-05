@@ -2,7 +2,6 @@
 
 import {
   UserGroupIcon, ChartPieIcon, RocketLaunchIcon, CurrencyDollarIcon, PresentationChartLineIcon, HandThumbUpIcon
-
 } from '@heroicons/react/20/solid'
 import Image from 'next/image'
 import { AnimatePresence, motion } from "framer-motion";
@@ -12,7 +11,7 @@ const features = [
   {
     name: 'Improve Customer Retention.',
     description:
-      'Deliver consistent, quanti able, and documented results that breed trust and strengthen customer relationships and keep competitors exactly where they belong — on the outside looking in.',
+      'Deliver consistent, quantifiable, and documented results that breed trust and strengthen customer relationships and keep competitors exactly where they belong — on the outside looking in.',
     icon: RocketLaunchIcon,
   },
   {
@@ -22,22 +21,22 @@ const features = [
   },
   {
     name: 'Gain Competitive Advantage.',
-    description: 'Stand out from the crowd by showing customers and prospects how your services leverage real data and powerful analytics to ensure the optimal performance of their buildings..',
+    description: 'Stand out from the crowd by showing customers and prospects how your services leverage real data and powerful analytics to ensure the optimal performance of their buildings.',
     icon: ChartPieIcon,
   },
   {
     name: 'Enhance Team Effectiveness.',
-    description: 'Replace assumption-driven guesswork with data-driven answers, saving your team a tremendous amount of e ort and time in troubleshooting and resolving issues.',
+    description: 'Replace assumption-driven guesswork with data-driven answers, saving your team a tremendous amount of effort and time in troubleshooting and resolving issues.',
     icon: UserGroupIcon,
   },
   {
     name: 'Become indispensable with VizualTech Solutions.',
-    description: 'Increase labor e ciency ratios, deliver new levels of customer value you probably never thought possible, and take your business to the next level. Contact VizualTech Solutions now!',
+    description: 'Increase labor efficiency ratios, deliver new levels of customer value you probably never thought possible, and take your business to the next level. Contact VizualTech Solutions now!',
     icon: HandThumbUpIcon,
   },
   {
-    name: ' Increase Efficiency & Pro tability.',
-    description: ' Bolster your bottom line by doing more with less while continuing to provide excellent service to your customers as today&apos;s building techs retire and the workforce shrinks.',
+    name: 'Increase Efficiency & Profitability.',
+    description: 'Bolster your bottom line by doing more with less while continuing to provide excellent service to your customers as today\'s building techs retire and the workforce shrinks.',
     icon: PresentationChartLineIcon,
   },
 ]
@@ -45,9 +44,14 @@ const features = [
 export default function Values() {
   let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
-
   return (
-    <div className="snap-always snap-start relative max-w-7xl mx-auto overflow-hidden bg-white py-16 md:py-28">
+    <motion.div
+      className="snap-always snap-start relative max-w-7xl mx-auto overflow-hidden bg-white py-16 md:py-28"
+      initial={{ opacity: 0, y: 80 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1, ease: "easeInOut" }}
+      viewport={{ once: false }}
+    >
       <div className="absolute inset-0">
         <Image
           src="/valuesBg.jpg"
@@ -71,7 +75,7 @@ export default function Values() {
           {features.map((feature, idx) => (
             <div
               key={feature?.name}
-              className="relative group  block p-2 h-full w-full "
+              className="relative group block p-2 h-full w-full"
               onMouseEnter={() => setHoveredIndex(idx)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
@@ -92,24 +96,17 @@ export default function Values() {
                   />
                 )}
               </AnimatePresence>
-              <div key={feature.name} className="relative pl-12  rounded-md py-4 pr-4 ">
+              <div className="relative pl-12 rounded-md py-4 pr-4">
                 <div className="inline font-semibold text-[#171717]">
                   <feature.icon aria-hidden="true" className="absolute left-2 top-4 h-8 w-8 text-[#06B6D4]" />
                   {feature.name}
-                </div>{' '}
+                </div>
                 <div className="inline text-gray-600">{feature.description}</div>
               </div>
             </div>
           ))}
         </div>
-        {/* <Image
-            alt="Product screenshot"
-            src="https://tailwindui.com/img/component-images/dark-project-app-screenshot.png"
-            width={2432}
-            height={1442}
-            className="w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem] md:-ml-4 lg:-ml-0"
-          /> */}
       </div>
-    </div>
+    </motion.div>
   )
 }
