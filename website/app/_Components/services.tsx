@@ -50,8 +50,9 @@ export default function Services() {
             <motion.div
                 className="relative z-30 text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl"
                 initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: "easeInOut" }}
+                viewport={{ once: false }}
             >
                 Our Services!
             </motion.div>
@@ -59,8 +60,9 @@ export default function Services() {
                 <motion.div
                     className="sm:w-1/2"
                     initial={{ opacity: 0, x: -50 }}
-                    animate={{ opacity: 1, x: 0 }}
+                    whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8, ease: "easeInOut" }}
+                    viewport={{ once: false }}
                 >
                     <div className="text-center text-white text-2xl md:text-4xl">{selectedService.name}</div>
                     <div className="text-center w-full">
@@ -87,9 +89,10 @@ export default function Services() {
                 </motion.div>
                 <motion.div
                     className="sm:w-1/2 mt-8 space-y-4 z-30"
-                    initial={{ opacity: 0, x: 50 }}
+                    whileInView={{ opacity: 0, x: 50 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8, ease: "easeInOut" }}
+                    viewport={{ once: false }}
                 >
                     <Carousel className="w-full " orientation="vertical" opts={{
                         align: "start",
@@ -121,9 +124,10 @@ export default function Services() {
             </div>
             <motion.div
                 className="opacity-50 absolute z-20 -top-10 -left-80 transform sm:w-[40rem] sm:h-[40rem]  md:w-[50rem] md:h-[50rem] bg-[#06B6D4] rounded-full"
-                initial={{ opacity: 0, scale: 0.5 }}
+                whileInView={{ opacity: 0, scale: 0.5 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1.2, ease: "easeInOut" }}
+                viewport={{ once: false }}
             />
             <BackgroundBeams />
         </div>

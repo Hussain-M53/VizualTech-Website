@@ -25,8 +25,9 @@ export default function Hero() {
           <div className="block sm:flex sm:items-center">
             <motion.div
               initial={{ opacity: 0, x: -100 }}
-              animate={{ opacity: 1, x: 0 }}
+              whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 1 }}
+              viewport={{ once: false }}
               className="text-left mb-6 sm:mb-0"
             >
               <h1 className="text-2xl md:text-3xl lg:text-5xl font-bold tracking-tight text-[#171717]">
@@ -46,8 +47,9 @@ export default function Hero() {
             </motion.div>
             <motion.div
               initial={{ opacity: 0, x: 100 }}
-              animate={{ opacity: 1, x: 0 }}
+              whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 1 }}
+              viewport={{ once: false }}
               className="z-50"
             >
               <Image
