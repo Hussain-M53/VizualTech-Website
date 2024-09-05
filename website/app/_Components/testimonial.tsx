@@ -1,5 +1,6 @@
 'use client'
 
+import { TypewriterEffect } from "@/components/ui/typewriter-effect";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
@@ -54,7 +55,10 @@ export default function Testimonial() {
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,theme(colors.indigo.100),white)] opacity-20" />
       <div className="absolute inset-y-0 right-1/2 -z-10 mr-16 w-[200%] origin-bottom-left skew-x-[-30deg] bg-white shadow-xl shadow-[#06B6D4]/10 ring-1 ring-indigo-50 sm:mr-28 lg:mr-0 xl:mr-16 xl:origin-center" />
       <div className="mx-auto max-w-2xl lg:max-w-4xl overflow-hidden">
-        <div className="text-center text-4xl font-semibold mb-8">What our client has to say about us!</div>
+        <div className="text-center text-4xl font-semibold mb-8">
+          <TypewriterEffect words={[{ text:"What"},{ text:"our"}, { text:"client"},  {text:"has"}, { text:"to"}, { text:"say"}, { text:"about"}, { text:"us!"}]} />
+
+        </div>
         <div
           className="flex transition-transform duration-500 ease-in-out"
           style={{ transform: `translateX(-${currentTestimonial * 100}%)` }}

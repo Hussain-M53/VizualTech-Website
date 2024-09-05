@@ -71,9 +71,10 @@ export default function Services() {
                                 <motion.div
                                     key={selectedService.image}
                                     initial={{ opacity: 0, scale: 0.8 }}
-                                    animate={{ opacity: 1, scale: 1 }}
+                                    whileInView={{ opacity: 1, scale: 1 }}
                                     exit={{ opacity: 0, scale: 0.8 }}
                                     transition={{ duration: 0.5 }}
+                                    viewport={{ once: false }}
                                 >
                                     <Image
                                         width={600}
@@ -89,8 +90,8 @@ export default function Services() {
                 </motion.div>
                 <motion.div
                     className="sm:w-1/2 mt-8 space-y-4 z-30"
-                    whileInView={{ opacity: 0, x: 50 }}
-                    animate={{ opacity: 1, x: 0 }}
+                    initial={{ opacity: 0, x: 50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8, ease: "easeInOut" }}
                     viewport={{ once: false }}
                 >
@@ -124,7 +125,7 @@ export default function Services() {
             </div>
             <motion.div
                 className="opacity-50 absolute z-20 -top-10 -left-80 transform sm:w-[40rem] sm:h-[40rem]  md:w-[50rem] md:h-[50rem] bg-[#06B6D4] rounded-full"
-                whileInView={{ opacity: 0, scale: 0.5 }}
+                initial={{ opacity: 0, scale: 0.5 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1.2, ease: "easeInOut" }}
                 viewport={{ once: false }}
