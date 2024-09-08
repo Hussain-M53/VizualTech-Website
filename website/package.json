@@ -19,8 +19,10 @@
     "framer-motion": "^11.3.31",
     "lucide-react": "^0.435.0",
     "next": "14.2.6",
+    "next-sanity": "^9.4.7",
     "react": "^18",
     "react-dom": "^18",
+    "sanity": "^3.57.1",
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7"
   },

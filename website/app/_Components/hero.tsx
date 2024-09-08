@@ -36,7 +36,7 @@ export default function Hero() {
               <p className="mt-6 text:md sm:text-lg leading-8 text-[#171717]">
                 We are specialized in Building Management Systems - Application Engineering Services
               </p>
-              <div className="mt-10 flex items-center justify-start gap-x-6">
+              <div className="z-10 mt-10 flex items-center justify-start gap-x-6">
                 <Link
                   href="#"
                   className="rounded-md bg-[#06B6D4] px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[#06B6D4] hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
@@ -57,7 +57,7 @@ export default function Hero() {
                 alt="hero image"
                 width={1500}
                 height={2000}
-                className="w-[10rem] sm:w-[50rem]"
+                className="z-10 w-[10rem] sm:w-[50rem]"
                 style={{
                   WebkitMaskImage: 'radial-gradient(circle, grey, transparent)',
                 }}
