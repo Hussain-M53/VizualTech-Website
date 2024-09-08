@@ -7,11 +7,11 @@ import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
 
 const initialNavigation = [
-    { name: 'Home', href: '/', current: true },
-    { name: 'Our Values', href: '/WhyUs', current: false },
-    { name: 'Projects', href: '/Projects', current: false },
-    { name: 'Services', href: '/Services', current: false },
-    { name: 'About Us', href: '/AboutUs', current: false },
+    { name: 'Home', href: '/Site', current: true },
+    { name: 'Our Values', href: '/Site/WhyUs', current: false },
+    { name: 'Projects', href: '/Site/Projects', current: false },
+    { name: 'Services', href: '/Site/Services', current: false },
+    { name: 'About Us', href: '/Site/AboutUs', current: false },
 ]
 
 function classNames(...classes: string[]) {
